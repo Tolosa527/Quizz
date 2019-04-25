@@ -1,0 +1,50 @@
+body{
+    background-image: url(image/background.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+.title{
+    color: white;
+    text-align: center;
+    font-size: 6em;
+}
+.question{
+    position: relative;
+    font-style:monospace;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+/* #output{
+    background-image: url(image/banner.png);
+    background-size: cover;
+} */
+
+.contenedor{
+    margin-top:20px;
+    margin-left:27%;
+    width: 45%;
+    height: 40em;
+    background-image: url(image/container.jpg);
+    background-repeat no-repeat;
+    background-size: 80%;
+    border-radius: 10%;
+    border-right: 5px solid rgba(192,192,192,0.3);
+    border-bottom: 5px solid rgba(192,192,192,0.3);
+}
+.btn-info{
+    padding: 5px;
+    margin: 10%;
+    border-radius: 30%;
+}
+#button{
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 43%;
+}
+.modal-body{
+    background-image: url(image/correct.jpg);
+}
