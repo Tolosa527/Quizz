@@ -49,7 +49,7 @@ function setButtons(incorrectAnswers, correctAnswer,type,output){
         outputButtons.innerHTML += `<div><button class="btn-select">True</button></div>`;
         outputButtons.innerHTML += `<div><button class="btn-select">False</button></div>`;
     }
-    var btnResponse = document.getElementsByClassName("btn-info");
+    var btnResponse = document.getElementsByClassName("btn-select");
     var l = btnResponse.length;
     var arrayBtn = [];
     for (var i = 0; i < l; i++) {
@@ -85,8 +85,8 @@ function shuffle(array) {
 }
 
 function correctResponse(){
-    
+   alert("bien");
 }
 function incorrectResponse(){
-    
+   alert("mal");
 }
