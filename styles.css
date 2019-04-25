@@ -6,7 +6,7 @@ body{
 .title{
     color: white;
     text-align: center;
-    font-size: 6em;
+    font-size: 7em;
 }
 .question{
     position: relative;
@@ -25,26 +25,45 @@ body{
 
 .contenedor{
     margin-top:20px;
-    margin-left:27%;
+    margin-left:28%;
     width: 45%;
     height: 40em;
     background-image: url(image/container.jpg);
     background-repeat no-repeat;
-    background-size: 80%;
+    background-size: 100%;
     border-radius: 10%;
     border-right: 5px solid rgba(192,192,192,0.3);
     border-bottom: 5px solid rgba(192,192,192,0.3);
 }
-.btn-info{
-    padding: 5px;
-    margin: 10%;
-    border-radius: 30%;
+.btn-select{
+    margin: 5%;
+    width: 100%;
+    font-family: 'Gugi', cursive;
+    font-size: 20px;
+    font-style: bold;
+    
 }
 #button{
+    width: 10em;
+    height: 10em;
     padding: 20px;
+    border-radius: 50%;
     margin-top: 20px;
-    margin-left: 43%;
+    margin-left: 45%;
+    border-right: 5px solid rgba(192,192,192,0.3);
+    border-bottom: 5px solid rgba(192,192,192,0.3);    
+}
+.button-text{
+    font-family: 'Gugi', cursive;
+    font-size: 30px;
+    font-style: bold;
 }
 .modal-body{
     background-image: url(image/correct.jpg);
+}
+#buttons{
+    position: relative;
+    width: 70%;
+    margin-left: 12%;
+
 }

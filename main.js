@@ -1,12 +1,14 @@
-var btn = document.getElementById('button');
+const btn = document.getElementById('button');
 btn.addEventListener('click',nextItem);
-var score = document.getElementById('score');
-var correctScore = 0;
-var incorrectScore = 0;
 
+const score = document.getElementById('score');
+const correctScore = 0;
+const incorrectScore = 0;
+const outputButtons = document.getElementById('buttons');
 
 //callback de btn
 function nextItem(){
+    vaciar();
     var url = 'https://opentdb.com/api.php?amount=1';
     requestAJAX(url, function(data){
         // Data
@@ -21,6 +23,7 @@ function nextItem(){
         output.innerHTML =`<div><h1 class="question">${question}</h1></div>`;
         setButtons(incorrectAnswers,correctAnswer,type,output);
     });
+
 }
 
 //request -----> get
@@ -37,15 +40,14 @@ function requestAJAX(url,callback){
 
 //print button
 function setButtons(incorrectAnswers, correctAnswer,type,output){
-
     if(type != 'boolean'){
         let buttons = randomButtons(incorrectAnswers, correctAnswer);
         buttons.forEach(function (button){
-            output.innerHTML += `<button class="btn-info" data-toggle="modal" data-target="#myModal">${button}</button>`;
+            outputButtons.innerHTML += `<div><button class="btn-select">${button}</button></div>`;
         });
     }else{
-        output.innerHTML += `<button class="btn-info" data-toggle="modal">True</button>`;
-        output.innerHTML += `<button class="btn-info" data-toggle="modal">False</button>`;
+        outputButtons.innerHTML += `<div><button class="btn-select">True</button></div>`;
+        outputButtons.innerHTML += `<div><button class="btn-select">False</button></div>`;
     }
     var btnResponse = document.getElementsByClassName("btn-info");
     var l = btnResponse.length;
@@ -63,7 +65,11 @@ function setButtons(incorrectAnswers, correctAnswer,type,output){
         });
     });
 }
+function vaciar(){
+    output.innerHTML = '';
+    outputButtons.innerHTML='';
 
+}
 //shuffle for the response buttons
 function randomButtons(incorrectAnswers,correctAnswer){
     const buttons=[];
@@ -77,28 +83,10 @@ function randomButtons(incorrectAnswers,correctAnswer){
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
+
 function correctResponse(){
-    let path = "image/correct.jpg";
-    correctScore++;
-    $("#content").css(
-        "background-image": `${path}`,
-        "background-size": "50%",
-        "width" : "300px",
-        "background-size": "auto",
-        "background-repeat": "no-repeat"
-    );
-    $("#content").append(`<h1>GENIAL!!!!<h1>`);
+    
 }
 function incorrectResponse(){
-    let path = "image/incorrect.jpg";
-    incorrectScore++;
-    $("#content").css(
-       "background-image": `${path}`,
-       "background-size": "50%",
-       "width" : "300px",
-       "background-size": "auto",
-       "background-repeat": "no-repeat"
-
-    );
-    $("#content").append(`<h1>SIGUE INTENTANDO!!!!<h1>`);
+    
 }
