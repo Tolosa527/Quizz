@@ -58,9 +58,11 @@ function setButtons(incorrectAnswers, correctAnswer,type,output){
     arrayBtn.forEach(function (element){
         element.addEventListener('click', function (){
             if(correctAnswer === element.innerHTML){
-                correctResponse();
+                var response = true;
+                showModal(response);
             }else{
-                incorrectResponse();
+                var response = false;
+                showModal(response);
             }
         });
     });
@@ -84,9 +86,17 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-function correctResponse(){
-   alert("bien");
-}
-function incorrectResponse(){
-   alert("mal");
-}
+function showModal(response){
+    var modal = document.getElementById("myModal");
+    var modalBody = document.getElementsByClassName("modal-body");
+    modal.style.display = "block";
+    if(response == true){
+        modalBody.innerHTML = "<h1>correct</h1>";
+    }else{
+        modalBody.innerHTML = "<h1>incorrect</h1>";
+    }
+    setTimeout(function() {
+        modal.style.display = "none";
+    }, 2000);
+}    
+
