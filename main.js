@@ -85,18 +85,16 @@ function randomButtons(incorrectAnswers,correctAnswer){
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
-
 function showModal(response){
     var modal = document.getElementById("myModal");
-    var modalBody = document.getElementsByClassName("modal-body");
     modal.style.display = "block";
     if(response == true){
-        modalBody.innerHTML = "<h1>correct</h1>";
+        document.getElementById("modal-content").style.backgroundImage = "url('image/correct.jpg')"; 
     }else{
-        modalBody.innerHTML = "<h1>incorrect</h1>";
+         document.getElementById("modal-content").style.backgroundImage = "url('image/incorrect.jpg')";
     }
     setTimeout(function() {
         modal.style.display = "none";
-    }, 2000);
+    }, 3000);
 }    
 
