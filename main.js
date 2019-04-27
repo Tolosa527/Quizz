@@ -2,10 +2,12 @@ const btn = document.getElementById('button');
 btn.addEventListener('click',nextItem);
 
 const score = document.getElementById('score');
-const correctScore = 0;
-const incorrectScore = 0;
+var correctScore = 0;
+var incorrectScore = 0;
 const outputButtons = document.getElementById('buttons');
-
+const messageOk = ["Great!!","Fantiastic","Excelent!!", "Good job"];
+const messageError = ["You lose", "So bad", "I´m Sorry"];
+ 
 //callback de btn
 function nextItem(){
     vaciar();
@@ -58,11 +60,16 @@ function setButtons(incorrectAnswers, correctAnswer,type,output){
     arrayBtn.forEach(function (element){
         element.addEventListener('click', function (){
             if(correctAnswer === element.innerHTML){
+                correctScore++;
                 var response = true;
                 showModal(response);
+                getScore();
+
             }else{
+                incorrectScore++;
                 var response = false;
                 showModal(response);
+                getScore();
             }
         });
     });
@@ -87,14 +94,23 @@ function shuffle(array) {
 }
 function showModal(response){
     var modal = document.getElementById("myModal");
+    var modalContent = document.getElementById("modal-content");
     modal.style.display = "block";
     if(response == true){
-        document.getElementById("modal-content").style.backgroundImage = "url('image/correct.jpg')"; 
+        modalContent.style.backgroundImage = "url('image/correct.jpg')";
+        modalContent.innerHTML = `<h2 class ="messageResponse">${getResponseMessage(messageOk)}</h2>`; 
+        
     }else{
-         document.getElementById("modal-content").style.backgroundImage = "url('image/incorrect.jpg')";
+         modalContent.style.backgroundImage = "url('image/incorrect.jpg')";
+         modalContent.innerHTML = `<h2 class = "messageResponse">${getResponseMessage(messageError)}</h2>`; 
     }
     setTimeout(function() {
         modal.style.display = "none";
     }, 3000);
-}    
-
+}  
+function getResponseMessage(array){
+    return array[Math.floor(Math.random()*array.length)];
+}
+function getScore(){
+    score.innerHTML = `<h3 class="scoreTitle">${correctScore} - ${incorrectScore}</h3>`
+}

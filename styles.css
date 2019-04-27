@@ -86,5 +86,24 @@ body{
     position: relative;
     width: 70%;
     margin-left: 12%;
+}
+.messageResponse{
+    text-align: center;
+    margin-top: 35%;
+    font-family: 'Anton', sans-serif;
+    font-size: 5em;
+}
+.scoreContainer{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+.scoreTitle{
+    font-family: 'Anton', sans-serif;
+    color: white;
+    text-align: center;
+}
+#score{
 
 }
